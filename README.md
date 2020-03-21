@@ -1,1 +1,1 @@
-# GrandPapyBot_OC
+# GrandPapyBot_OC, some locations, many stories
