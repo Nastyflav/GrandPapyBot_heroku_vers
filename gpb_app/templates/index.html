@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ config.APP_NAME }}</title>
         <link href="static/css/bootstrap.css" rel="stylesheet">
         <link href="static/css/styles.css" rel="stylesheet">
         <style type="text/css">
-            [class*="col"] { margin-bottom: 20px; }
-            img { width: 100%; }
-            body { margin-top: 10px; }
+            img { width: 15%; }
+            body { margin-top: 10px; background-color:#ebe186;}
         </style>
     </head>
 
@@ -35,10 +36,11 @@
                     <img src="{{ url_for('static', filename='images/oc_logo.jpg') }}" />
                     <img src="{{ url_for('static', filename='images/github_logo.png') }}" />
                 </div>
-                <p>Auteur : {{ config.APP_AUTHOR }}</p>
+                <p><strong>Auteur</strong> : {{ config.APP_AUTHOR }}</p>
                 <p>Le code cette application est disponible sur <a href="{{ config.APP_AUTHOR }}">Github</a></p>
                 <p>Application sous <a href="{{ config.APP_GPL_LINK }}">license GPL</a></p>
             </footer>
         </div>
+    <script src="static/js/jquery.js"></script>
     </body>
 </html>

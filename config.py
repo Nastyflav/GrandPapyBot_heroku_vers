@@ -9,5 +9,4 @@ APP_REPO_LINK = 'https://github.com/Nastyflav/GrandPapyBot_OC'
 APP_GPL_LINK = 'https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_limit%C3%A9e_GNU'
 
 #Text area presets
-SIZE_AREA = 30
 TEXT_AREA = 'Coucou GrandPy, tu vas bien ? Dis-moi, tu ne saurais pas où se situe Minneapolis par hasard ?'
