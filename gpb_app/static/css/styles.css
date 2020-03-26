@@ -12,7 +12,7 @@
 
 body { 
     margin-top: 10px; background-color:#ebe186;
-    background-image: url("/images/back_map.jpg");
+    background-image: url("images/back_map.jpg");
     background-repeat: no-repeat;
     background-position: center;
 }
