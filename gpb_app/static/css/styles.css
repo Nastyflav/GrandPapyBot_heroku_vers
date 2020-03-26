@@ -2,12 +2,12 @@
     font-family: 'MyFont';
     src: url('fonts/FontleroyBrown.ttf')
 }
-.container-fluid
-{
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 body { 
@@ -17,14 +17,7 @@ body {
     background-position: center;
 }
 
-img {
-    width: 50%;
-}
-
-header, footer {
+.page-footer {
     background-color:whitesmoke;
 }
 
-#logoGrandPy {
-    
-}
