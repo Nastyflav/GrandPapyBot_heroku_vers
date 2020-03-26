@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/FontleroyBrown.ttf')
+}
+.container-fluid
+{
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+body { 
+    margin-top: 10px; background-color:#ebe186;
+    background-image: url("/images/back_map.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+img {
+    width: 50%;
+}
+
+header, footer {
+    background-color:whitesmoke;
+}
+
+#logoGrandPy {
+    
+}

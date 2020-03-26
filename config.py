@@ -5,7 +5,9 @@
 APP_NAME = 'GrandPy Bot'
 APP_CATCHLINE = 'On lui a installé l\'ADSL, profitez-en ! Trouvez des lieux et leur histoire !'
 APP_AUTHOR = 'Flavien Murail'
+APP_LINKEDIN_LINK = 'https://www.linkedin.com/in/flavien-murail-7155b7156/'
 APP_REPO_LINK = 'https://github.com/Nastyflav/GrandPapyBot_OC'
+APP_PARTNER_LINK = 'https://openclassrooms.com/'
 APP_GPL_LINK = 'https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_limit%C3%A9e_GNU'
 
 #Text area presets
