@@ -1,23 +1,62 @@
 @font-face {
     font-family: 'MyFont';
-    src: url('fonts/FontleroyBrown.ttf')
+    src: url('../fonts/Almendra-Regular.otf');
+}
+
+@media (min-width: 768px) {     /*Limite de largeur par média*/
+    .container {
+      width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
     margin-right: auto;
     margin-left: auto;
 }
 
 body { 
-    margin-top: 10px; background-color:#ebe186;
-    background-image: url("images/back_map.jpg");
+    margin-top: 10px; 
+    background-color:#ebe186;
+    background-image: url("../images/back_map.jpg");
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.page-footer {
+header, footer {
     background-color:whitesmoke;
+    border: 2px solid rgb(187, 123, 4);
+    border-radius: 6px;
+    line-height: 40px;
+    box-shadow: 0px 0px 0px 8px rgba(73, 41, 0, 0.3); 
 }
 
+h1, h3 {
+    font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
+}
+
+p {
+    font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
+    text-align: center;
+}
+
+#logoGrandPy {
+    width: 150px;
+    height: 150px;
+}
+
+#logolinkedin, #logogithub, #logo-oc {
+    width: 30px;
+    height: 30px;
+} 
