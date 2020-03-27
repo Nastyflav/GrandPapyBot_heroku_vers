@@ -24,24 +24,31 @@
                 </section>
             </header><br>
 
-            <form>
-            <div class="form-group">
-                <label for="message-area-title">Allez, GrandPy vous écoute !</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="{{ config.TEXT_AREA }}">
-                <button type="button" class="btn btn-info">Envoyer à GrandPy</button>
-              </div>
-            </form><br>
+            <div class='chat-area'>
+                <div class="col-md-6 col-sm-offset-2 frame">
+                    <ul></ul>
+                    <div>
+                        <div class="message-area">                        
+                            <div class="text text-r" style="background:whitesmoke !important">
+                                <input class="mytext" placeholder="{{ config.TEXT_AREA }}"/></div> 
+                            </div>
+                        <div style="padding:10px;">
+                            
+                            <button type="button" class="btn btn-info">Envoyer à GrandPy</button>
+                    </div>              
+                </div> 
+            </div><br>
 
-            <footer class='page-footer'>
-                <div class="=row">
-                    <p class="col-md-offset-3 col-md-2"><strong>Auteur</strong> : {{ config.APP_AUTHOR }}
+            <footer>
+                <section class="=row">
+                    <p class="col-md-offset-2 col-md-2"><strong>Auteur</strong> : {{ config.APP_AUTHOR }}
                         <a href="{{ config.APP_LINKEDIN_LINK }}"><img id ='logolinkedin' src="{{ url_for('static', filename='images/linkedin_logo.png') }}" /></a></p>
                     <p class="col-md-2">Le code cette application est disponible sur
                         <a href="{{ config.APP_REPO_LINK }}"><img id ='logogithub' src="{{ url_for('static', filename='images/github_logo.png') }}" /></a></p>
                     <p class="col-md-5">Application développée dans le cadre d'un projet d'étude OpenClassrooms
                         <a href="{{ config.APP_PARTNER_LINK }}"><img id='logo-oc' src="{{ url_for('static', filename='images/oc_logo.jpg') }}" /></a></p>
                     <p class="col-md-offset-5 col-md-2">2020 Copyright <a href="{{ config.APP_GPL_LINK }}">license GPL</a> </p>
-                </div>
+                </section>
             </footer>
         </div>
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
