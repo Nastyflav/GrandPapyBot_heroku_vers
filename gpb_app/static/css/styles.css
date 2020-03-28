@@ -3,29 +3,6 @@
     src: url('../fonts/Almendra-Regular.otf');
 }
 
-@media (min-width: 768px) {     /*Media width limit*/
-    .container {
-      width: 750px;
-    }
-}
-@media (min-width: 992px) {
-    .container {
-      width: 970px;
-    }
-}
-@media (min-width: 1200px) {
-    .container {
-      width: 1170px;
-    }
-}
-
-.container {
-    padding-right: 30px;
-    padding-left: 30px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 body { 
     margin-top: 10px; 
     background-color:#ebe186;
