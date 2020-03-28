@@ -3,15 +3,25 @@
     src: url('../fonts/Almendra-Regular.otf');
 }
 
-body { 
-    margin-top: 10px; 
-    background-color:#ebe186;
+/*Body and container properties*/
+
+.container { 
     background-image: url("../images/back_map.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
-header, footer, .chat-area {
+body { 
+    background-color:#ebe186;
+}
+
+/*Header*/
+
+header {
+    margin-top: 50px;
     background-color:whitesmoke;
     border: 2px solid rgb(187, 123, 4);
     border-radius: 6px;
@@ -19,8 +29,38 @@ header, footer, .chat-area {
     box-shadow: 0px 0px 0px 8px rgba(73, 41, 0, 0.3); 
 }
 
+/*Main content*/
+
+.chat-area {
+    background-color:whitesmoke;
+    border: 2px solid rgb(187, 123, 4);
+    border-radius: 6px;
+    line-height: 40px;
+    box-shadow: 0px 0px 0px 8px rgba(73, 41, 0, 0.3); 
+    padding: 2em;
+}
+
+.message-area{
+    background:whitesmoke;
+}
+
+.frame{                     /*Chatbox background*/
+    background:#ebe186;
+    height: 250px;
+    overflow:hidden;
+    padding: 0;
+}
+
 h1, h3 {
     font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
+}
+
+footer{
+    background-color:whitesmoke;
+    border: 2px solid rgb(187, 123, 4);
+    border-radius: 6px;
+    line-height: 40px;
+    box-shadow: 0px 0px 0px 8px rgba(73, 41, 0, 0.3); 
 }
 
 p {
@@ -42,7 +82,7 @@ p {
     border:0;padding:10px;background:whitesmoke;
 }
 .text{
-    width:75%;display:flex;flex-direction:column;
+    width:100%;display:flex;flex-direction:column;
 }
 .text > p:first-of-type{
     width:100%;margin-top:0;margin-bottom:auto;line-height: 13px;font-size: 12px;
@@ -67,60 +107,29 @@ p {
 .macro{
     margin-top:5px;width:85%;border-radius:5px;padding:5px;display:flex;
 }
-.message-area{
-    float:right;background:whitesmoke;
-}
+
 .msj{
     float:left;background:white;
 }
-.frame{
-    background:#e0e0de;
-    height:450px;
-    overflow:hidden;
-    padding:0;
-}
+
 .frame > div:last-of-type{
-    position:absolute;bottom:0;width:100%;display:flex;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    display:flex;
 }
-body > div > div > div:nth-child(2) > span{
-    background: whitesmoke;padding: 10px;font-size: 21px;border-radius: 50%;
-}
-body > div > div > div.msj-rta.macro{
-    margin:auto;margin-left:1%;
-}
-ul {
+
+ul {  /*Chat messages */
     width:100%;
     list-style-type: none;
     padding:18px;
-    position:absolute;
     bottom:47px;
     display:flex;
     flex-direction: column;
     top:0;
     overflow-y:scroll;
 }
-.msj:before{
-    width: 0;
-    height: 0;
-    content:"";
-    top:-5px;
-    left:-14px;
-    position:relative;
-    border-style: solid;
-    border-width: 0 13px 13px 0;
-    border-color: transparent #ffffff transparent transparent;            
-}
-.msj-rta:after{
-    width: 0;
-    height: 0;
-    content:"";
-    top:-5px;
-    left:14px;
-    position:relative;
-    border-style: solid;
-    border-width: 13px 13px 0 0;
-    border-color: whitesmoke transparent transparent transparent;           
-}  
+
 input:focus{
     outline: none;
 }        
