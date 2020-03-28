@@ -40,15 +40,19 @@ header {
     padding: 2em;
 }
 
-.message-area{
+.message-area {
     background:whitesmoke;
 }
 
-.frame{                     /*Chatbox background*/
+.frame {                     /*Chatbox background*/
     background:#ebe186;
     height: 250px;
     overflow:hidden;
     padding: 0;
+}
+
+.send-button {
+    
 }
 
 h1, h3 {
