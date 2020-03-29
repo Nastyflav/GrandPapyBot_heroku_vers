@@ -40,7 +40,7 @@ header {
     padding: 2em;
 }
 
-.message-area {
+.message-area { 
     background:whitesmoke;
 }
 
@@ -51,8 +51,21 @@ header {
     padding: 0;
 }
 
-.send-button {
-    
+ul {  /*Chat*/
+    width:100%;
+    list-style-type: none;
+    padding:18px;
+    bottom:47px;
+    display:flex;
+    flex-direction: column;
+    top:0;
+    overflow-y:scroll;
+}
+
+li {    /*Chat messages */
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: whitesmoke;
 }
 
 h1, h3 {
@@ -113,7 +126,7 @@ p {
 }
 
 .msj{
-    float:left;background:white;
+    background:white;
 }
 
 .frame > div:last-of-type{
@@ -121,17 +134,6 @@ p {
     bottom:0;
     width:100%;
     display:flex;
-}
-
-ul {  /*Chat messages */
-    width:100%;
-    list-style-type: none;
-    padding:18px;
-    bottom:47px;
-    display:flex;
-    flex-direction: column;
-    top:0;
-    overflow-y:scroll;
 }
 
 input:focus{
