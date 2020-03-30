@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+import os
+
 #Application informations
 APP_NAME = 'GrandPy Bot'
 APP_CATCHLINE = 'On lui a installé l\'ADSL, profitez-en ! Trouvez des lieux et leur histoire !'
@@ -30,4 +32,14 @@ ANSWERS_STORY_FAIL = ['Il ne se passe jamais rien là-bas, faut t\'y faire.',
                         'J\'ai pas la science infuse petit gars ! Regarde dans un livre !']
 
 #Google Maps Api presets
-GOOGLE_KEY = ''
+GOOGLE_KEY = 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204'
+GOOGLE_URL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?'
+GOOGLE_INPUTTYPE = 'textquery'
+GOOGLE_FIELDS = 'address_component, name, geometry'
+GOOGLE_LANGUAGE = 'fr'
+
+#Wikipedia Api presets
+WIKI_URL = 'https://en.wikipedia.org/w/api.php'
+WIKI_FORMAT = 'json'
+WIKI_LIST = 'geosearch'
+WIKI_ACTION = 'query'
