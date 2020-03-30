@@ -49,6 +49,7 @@ header {
     height: 250px;
     overflow:hidden;
     padding: 0;
+    border-radius: 6px;
 }
 
 ul {  /*Chat*/
