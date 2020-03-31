@@ -10,7 +10,7 @@ Ask him politely and GrandPy Bot will find you locations and all the stories abo
 Once you arrive on the [GrandPy Bot web page] (https://world.openfoodfacts.org/) :\
 	- you can chat with GrandPy Bot (careful, he has bad temper) \
 	- you can ask him to find a location and its historical background \
-	- a map will be displayed each time you request a location \
+	- a map will be displayed each time you request a location
 
 GrandPy Bot is hosted by [Heroku](https://www.heroku.com/)  for now only available in french language.	
 
