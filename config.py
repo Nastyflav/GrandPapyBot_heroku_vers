@@ -41,3 +41,9 @@ WIKI_URL = 'https://en.wikipedia.org/w/api.php'
 WIKI_FORMAT = 'json'
 WIKI_LIST = 'geosearch'
 WIKI_ACTION = 'query'
+WIKI_RADIUS = 10000
+WIKI_PROP = "extracts|info"
+WIKI_INPROP = "url"
+WIKI_EXCHARS = 1000
+WIKI_EXPLAINTEXT = 1
+
