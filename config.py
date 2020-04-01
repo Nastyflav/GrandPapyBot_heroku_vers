@@ -35,6 +35,8 @@ GOOGLE_URL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?
 GOOGLE_INPUTTYPE = 'textquery'
 GOOGLE_FIELDS = 'formatted_address,name,geometry'
 GOOGLE_LANGUAGE = 'fr'
+GOOGLE_MAP_URL = 'https://maps.googleapis.com/maps/api/staticmap?'
+GOOGLE_MAP_SIZE = (500, 400)
 
 #Wikipedia Api presets
 WIKI_URL = 'https://en.wikipedia.org/w/api.php'

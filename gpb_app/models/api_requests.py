@@ -24,6 +24,13 @@ class APIRequests:
         
         else:
             return False
+
+    def get_map(self):
+        """Get an URL from the API to later display a static map"""
+        self.coordinates = '{},{}'.format(self.latitude, self.longitude)
+        payload = {'key': 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204', 'center': self.coordinates, \
+                    'markers': self.coordinates, 'size': '{}x{}'.format(500, 400)}
+        pass
             
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
