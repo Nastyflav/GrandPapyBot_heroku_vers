@@ -7,10 +7,10 @@ import json
 import os
 import requests
 
-class TestGoogleMapRequest:
+class TestApiRequests:
 
     user_input = 'Nantes'
-    place = script.GoogleMapsRequest(user_input)
+    place = script.APIRequests(user_input)
     results = {'candidates': [{'formatted_address': 'Nantes, France', \
                             'geometry': {'location': {'lat': 47.218371, 'lng': -1.553621}, \
                             'viewport': {'northeast': {'lat': 47.29582689999999, 'lng': -1.4783261}, 'southwest': {'lat': 47.1806171, 'lng': -1.6417861}}}, \
