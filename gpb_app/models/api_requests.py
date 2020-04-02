@@ -5,6 +5,7 @@ import requests as rq
 import json
 import urllib.parse as ur
 
+
 class APIRequests:
     """Class to load Google Maps datas, a map and Wikipedia datas from a user query"""
     def __init__(self, query):

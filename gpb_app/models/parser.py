@@ -22,7 +22,6 @@ class Parser:
             for symbol in file:
                 symbol = symbol.replace("\n", "")
                 self.textinput = self.textinput.replace(symbol, " ")
-            print(self.textinput)
 
     def clean_input_of_stopwords(self):
         self.final_query = []
