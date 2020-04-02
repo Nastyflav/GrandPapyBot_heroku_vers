@@ -15,10 +15,8 @@ class Parser:
 
         self.final_query_in_string = str()
 
-    def clean_input(self):
+    def clean_input_of_symbols(self):
         """Compare the user input with the stop words list to get only the key words for research"""
-        self.cleaned_query = []
-
         with open("gpb_app/models/symbols.txt", "r", encoding="cp1252") as file:
             file = file.readlines()
             for symbol in file:
@@ -26,17 +24,11 @@ class Parser:
                 self.textinput = self.textinput.replace(symbol, " ")
             print(self.textinput)
 
+    def clean_input_of_stopwords(self):
+        self.final_query = []
+
         for word in self.textinput.split():
             if word not in self.stop:
-                self.cleaned_query.append(word)
+                self.final_query.append(word)
         
-        self.final_query_in_string = " ".join(self.cleaned_query).strip()
-        print(self.final_query_in_string)
-
-def main():
-    
-    pars = Parser('Bonjour GrandPy ! Tu peux me donner l\'adresse du Louvre s\'il te plait ?')
-    pars.clean_input()
-
-if __name__ == "__main__":
-    main()
+        self.final_query_in_string = " ".join(self.final_query).strip()
