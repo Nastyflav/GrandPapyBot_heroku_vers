@@ -1,10 +1,9 @@
 #! /usr/bin/env python3
 # coding: UTF-8
 
-from pprint import pprint
 import requests as rq
 import json
-
+import urllib.parse as ur
 
 class APIRequests:
     """Class to load Google Maps datas, a map and Wikipedia datas from a user query"""
@@ -30,7 +29,11 @@ class APIRequests:
         self.coordinates = '{},{}'.format(self.latitude, self.longitude)
         payload = {'key': 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204', 'center': self.coordinates, \
                     'markers': self.coordinates, 'size': '{}x{}'.format(500, 400)}
-        pass
+        self.gm_url = ur.urlparse('https://maps.googleapis.com/maps/api/staticmap')
+        self.query = ur.urlencode(payload)
+        self.parts = (self.gm_url.scheme, self.gm_url.netloc, self.gm_url.path, '', self.query, '')
+
+        return ur.urlunparse(self.parts)
             
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
@@ -66,6 +69,7 @@ def main():
     api = APIRequests('Nantes')
     api.location_datas()
     api.get_place_by_gps()
+    api.get_map()
     api.location_focus()
 
 if __name__ == "__main__":

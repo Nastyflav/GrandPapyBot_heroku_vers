@@ -31,7 +31,7 @@ class TestApiRequests:
 #   - Récupérer une adresse
 #   - Récupérer une latitude
 #   - Récupérer une longitude 
-#   - Récupérer une carte
+#   - Récupérer une carte (https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204&center=47.218371%2C-1.553621&markers=47.218371%2C-1.553621&size=500x400)
 
 
 # API Wiki Media
