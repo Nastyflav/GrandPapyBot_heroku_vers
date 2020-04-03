@@ -1,9 +1,3 @@
-var me = {};
-me.avatar = "../images/back_map.jpg";
-
-var you = {};
-you.avatar = "https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg";
-
 function formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
@@ -26,7 +20,6 @@ function insertChat(who, text, time){
     if (who == "me"){
         control = '<li style="width:100%">' +
                         '<div class="message-area">' +
-                        '<div class="avatar"><img class="img-circle" style="width:100%;" src="'+ me.avatar +'" /></div>' +
                             '<div class="text text-l">' +
                                 '<p>'+ text +'</p>' +
                                 '<p><small>'+date+'</small></p>' +
@@ -36,11 +29,9 @@ function insertChat(who, text, time){
     }else{
         control = '<li style="width:100%;">' +
                         '<div class="message-area">' +
-                            '<div class="text text-r">' +
+                            '<div class="text">' +
                                 '<p>'+text+'</p>' +
-                                '<p><small>'+date+'</small></p>' +
-                            '</div>' +
-                        '<div class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img-circle" style="width:100%;" src="'+you.avatar+'" /></div>' +                                
+                                '<p><small>'+date+'</small></p>'                                
                   '</li>';
     }
     setTimeout(
@@ -54,7 +45,7 @@ function resetChat(){
     $("ul").empty();
 }
 
-$(".mytext").on("keydown", function(e){
+$(".user-input").on("keydown", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
@@ -65,14 +56,14 @@ $(".mytext").on("keydown", function(e){
 });
 
 $('body > div > div > div:nth-child(2) > span').click(function(){
-    $(".mytext").trigger({type: 'keydown', which: 13, keyCode: 13});
+    $(".user-input").trigger({type: 'keydown', which: 13, keyCode: 13});
 })
 
 //-- Clear Chat
 resetChat();
 
 //-- Print Messages
-insertChat("me", "Bon, j'ai pas que ça à faire...", 0);
+insertChat("me", "Bon, j'ai pas que ça à faire, je t'écoute...", 0);
 
 
 //-- NOTE: No use time on insertChat.

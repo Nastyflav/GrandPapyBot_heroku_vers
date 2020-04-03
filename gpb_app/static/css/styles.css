@@ -66,18 +66,18 @@ li {    /*Chat messages */
     background-color: whitesmoke;
 }
 
-h1, h3, label {
+h1, h3, label {     /*Only one font needed*/
     font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
 }
 
-footer{
+footer{     /*Footer presets*/
     background-color:whitesmoke;
     border: 2px solid rgb(187, 123, 4);
     border-radius: 6px;
     line-height: 40px; 
 }
 
-p {
+p {     /*As the footer paragraphs*/
     font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
     text-align: center;
 }
@@ -92,25 +92,35 @@ p {
     height: 30px;
 } 
 
-.mytext{
-    border:0;padding:10px;
-    background:whitesmoke;
-}
 .text{
-    width:100%;display:flex;flex-direction:column;
+    width:100%;
+    display:flex;
 }
+
+.user-input{        /*About the input area for the user*/
+    width:100%;
+    display:flex;
+    flex-direction:column;
+}
+
 .text > p:first-of-type{
-    width:100%;margin-top:0;margin-bottom:auto;line-height: 13px;font-size: 12px;
+    width:100%;
+    margin-top:1em;
+    line-height: 13px;
+    font-size: 15px;
+
 }
-.text > p:last-of-type{
-    width:100%;text-align:right;color:silver;margin-bottom:-7px;margin-top:auto;
+.text > p:last-of-type{         /*Hours*/  
+    width:100%;
+    text-align:right;
+    color:silver;
 }
+
 .text-l{
-    float:left;padding-right:10px;
+    float:left;
+    padding-right:10px;
 }        
-.text-r{
-    float:right;padding-left:10px;
-}
+
 .avatar{
     display:flex;
     justify-content:center;
@@ -118,15 +128,4 @@ p {
     width:25%;
     float:left;
     padding-right:10px;
-}
-.macro{
-    margin-top:5px;width:85%;border-radius:5px;padding:5px;display:flex;
-}
-
-.msj{
-    background:white;
-}
-
-input:focus{
-    outline: none;
-}        
+}     
