@@ -40,7 +40,10 @@ def chatbox():
         random_index = random.randint(0, 3)
         text_location = answers_list[random_index]
 
-    if 
+#Données à récupérer
+#   - location_datas : formatted_adress
+#   - get_map : url source de la map
+#   - wiki_data : extract / fullurl
 
     
 

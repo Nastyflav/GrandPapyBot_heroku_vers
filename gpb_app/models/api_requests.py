@@ -16,11 +16,11 @@ class APIRequests:
         payload = {'input': self.query, 'inputtype': 'textquery','fields': 'formatted_address,name,geometry',\
                         'key': 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204', 'language': 'fr'}
         response = rq.get(url='https://maps.googleapis.com/maps/api/place/findplacefromtext/json?', params=payload)
-        data = response.json()
+        self.data = response.json()
         
-        if data.get("status") == "OK":
-            self.latitude = data['candidates'][0]["geometry"]["location"]['lat']
-            self.longitude = data['candidates'][0]["geometry"]["location"]['lng']
+        if self.data.get("status") == "OK":
+            self.latitude = self.data['candidates'][0]["geometry"]["location"]['lat']
+            self.longitude = self.data['candidates'][0]["geometry"]["location"]['lng']
         
         else:
             return False
@@ -60,7 +60,7 @@ class APIRequests:
         
         if response.status_code == 200:
             self.wiki_data = response.json()
-            return self.wiki_data
+            print(self.wiki_data)
             
         else:
             return False
