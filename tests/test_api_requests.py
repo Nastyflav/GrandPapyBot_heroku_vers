@@ -67,37 +67,19 @@ class TestApiRequests:
         self.place.location_focus()
         assert self.place.wiki_data['query']['pages']['7148944']['extract'] == self.wiki_extract
 
-    
+    def test_get_map(self):
+        """Test the returned map static url by the get_map() method, but without the Google API Key"""
+        self.place.data['location'] = {'lat': '47.1806171', 'lng': '-1.6417861'}
 
-    
+        # Testing response URL without API key
+        url = self.place.get_map()
 
+        if 'key=' in url:
+            old_parts = ur.urlparse(url)
+            padic = ur.parse_qs(old_parts.query)
+            del(padic['key'])
+            query = ur.urlencode(padic, doseq=True)
+            parts = (old_parts.scheme, old_parts.netloc, old_parts.path, '', query, '')
+            url = ur.urlunparse(parts)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # def test_get_map(self):
-    #     self.place.data['location'] = {'lat': '47.1806171', 'lng': '-1.6417861'}
-
-    #     # Testing response URL without API key
-    #     url = self.place.get_map()
-
-    #     if 'key=' in url:
-    #         old_parts = ur.urlparse(url)
-    #         padic = ur.parse_qs(old_parts.query)
-    #         del(padic['key'])
-    #         query = ur.urlencode(padic, doseq=True)
-    #         parts = (old_parts.scheme, old_parts.netloc, old_parts.path, '', query, '')
-    #         url = ur.urlunparse(parts)
-
-    #     assert url == "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204&center=47.218371%2C-1.553621&markers=47.218371%2C-1.553621&size=500x400"
-#   - Recevoir des données non valides ou manquantes 
+        assert url == "https://maps.googleapis.com/maps/api/staticmap?center=47.218371%2C-1.553621&markers=47.218371%2C-1.553621&size=500x400"
