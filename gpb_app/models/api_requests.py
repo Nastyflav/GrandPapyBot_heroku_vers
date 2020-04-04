@@ -44,7 +44,7 @@ class APIRequests:
 
         if response.status_code == 200:
             self.geosearch_data = response.json()
-            return self.geosearch_data
+            print(self.geosearch_data)
         
         else:
             return False
@@ -60,7 +60,7 @@ class APIRequests:
         
         if response.status_code == 200:
             self.wiki_data = response.json()
-            print(self.wiki_data)
+            return self.wiki_data
             
         else:
             return False
