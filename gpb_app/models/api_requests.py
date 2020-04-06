@@ -21,6 +21,13 @@ class APIRequests:
         if self.data.get("status") == "OK":
             self.latitude = self.data['candidates'][0]["geometry"]["location"]['lat']
             self.longitude = self.data['candidates'][0]["geometry"]["location"]['lng']
+            self.name = self.data['candidates'][0]["name"]
+            self.address = self.data['candidates'][0]["formatted_address"]
+
+            return {
+                "name": self.name,
+                "address": self.address
+            }
         
         else:
             return False
@@ -44,7 +51,7 @@ class APIRequests:
 
         if response.status_code == 200:
             self.geosearch_data = response.json()
-            print(self.geosearch_data)
+            return self.geosearch_data
         
         else:
             return False
@@ -60,7 +67,14 @@ class APIRequests:
         
         if response.status_code == 200:
             self.wiki_data = response.json()
-            return self.wiki_data
+            self.extract = self.wiki_data['query']['pages'][str(self.page_id)]['extract']
+            self.url = self.wiki_data['query']['pages'][str(self.page_id)]['fullurl']
+            print(self.wiki_data)
+
+            return {
+                "extract": self.extract,
+                "url": self.url
+            }
             
         else:
             return False
