@@ -30,7 +30,7 @@ def chatbox():
     except:
         return jsonify({'error': "Ton Internet déraille complètement..."})
 
-    if place.location_datas is False:
+    if place.location_datas is False:       #if there's no such place existing
         error_list = cf.ANSWERS_ADRESS_FAIL
         random_index = random.randint(0, 3)
         missing_place_answer = error_list[random_index]
@@ -40,15 +40,15 @@ def chatbox():
         random_index = random.randint(0, 3)
         text_location = answers_list[random_index]
         
-        name = place.location_datas('name')
+        name = place.location_datas('name')     #if there's a place, returns its name and adress
         adress = place.location_datas('adress')
 
-    map_url = place.get_map()
+    map_url = place.get_map()       #get the map url from a method
 
     if place.get_place_by_gps is False:
         return jsonify({'error': "Ton Internet déraille complètement..."})
 
-    if place.location_focus is False:
+    if place.location_focus is False:       #if the Wikipedia page is missing or empty
         error_list = cf.ANSWERS_STORY_FAIL
         random_index = random.randint(0, 3)
         missing_story_answer = error_list[random_index]
@@ -58,7 +58,7 @@ def chatbox():
         random_index = random.randint(0, 3)
         text_story = answers_list[random_index]
 
-        extract = place.location_focus.get('extract')
+        extract = place.location_focus.get('extract')       #get the infos we need
         url = place.location_focus.get('url')
 
     return jsonify({'name': name, 'adress': adress, 'map': map_url, 'location': text_location, 'story': text_story})
