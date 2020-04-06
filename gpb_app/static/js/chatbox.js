@@ -1,4 +1,11 @@
-fetch(url)
+//Get the user input from the form
+function getUserInput(event) {
+    event.preventDefault();
+    document.getElementById("progress").style.display="block";
+    fetch('/chatbox', {method: 'POST', body: new FormData(form)})
+    .then(function(response) { return response.json(); })
+    .then(publish)
+};
 
 // function formatAMPM(date) {
 //     var hours = date.getHours();

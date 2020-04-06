@@ -15,13 +15,13 @@ app.config.from_object('config')
 
 def chatbox():
     """Route to connect Python backend and JS frontend"""
-    query = request['query']
+    query = request.form['userinput']
 
     if len(query) <= 1:         #if the user doesn't write a single character
         empty_error = cf.EMPTY_QUERY_ANSWER
         return jsonify({'error': empty_error})
 
-    parser = Parser(request.form['textinput'])      #parse the user input
+    parser = Parser(query)      #parse the user input
     parser.clean_input_of_symbols()
     parser.clean_input_of_stopwords()
 
@@ -40,8 +40,9 @@ def chatbox():
         random_index = random.randint(0, 3)
         text_location = answers_list[random_index]
         
-        name = place.location_datas('name')     #if there's a place, returns its name and adress
-        adress = place.location_datas('adress')
+        location_geo_datas = place.location_datas()
+        name = location_geo_datas.get('name')     #if there's a place, gets its name and adress
+        adress = location_geo_datas('adress')
 
     map_url = place.get_map()       #get the map url from a method
 
@@ -58,10 +59,12 @@ def chatbox():
         random_index = random.randint(0, 3)
         text_story = answers_list[random_index]
 
-        extract = place.location_focus.get('extract')       #get the infos we need
-        url = place.location_focus.get('url')
+        location_datas = place.location_focus()
+        extract = location_datas.get('extract')       #gets the infos we need
+        url = location_datas.get('url')
 
-    return jsonify({'name': name, 'adress': adress, 'map': map_url, 'location': text_location, 'story': text_story})
+    return jsonify({'name': name, 'adress': adress, 'map': map_url, 'location': text_location, 'story': text_story,
+                    'extract': extract, 'url': url})
 
 @app.route('/')
 @app.route('/index/')

@@ -24,10 +24,7 @@ class APIRequests:
             self.name = self.data['candidates'][0]["name"]
             self.address = self.data['candidates'][0]["formatted_address"]
 
-            return {
-                "name": self.name,
-                "address": self.address
-            }
+            return {"name": self.name, "address": self.address}
         
         else:
             return False
@@ -69,24 +66,9 @@ class APIRequests:
             self.wiki_data = response.json()
             self.extract = self.wiki_data['query']['pages'][str(self.page_id)]['extract']
             self.url = self.wiki_data['query']['pages'][str(self.page_id)]['fullurl']
-            print(self.wiki_data)
 
-            return {
-                "extract": self.extract,
-                "url": self.url
-            }
+            return {"extract": self.extract, "url": self.url}
             
         else:
             return False
-
-def main():
-    
-    api = APIRequests('Nantes')
-    api.location_datas()
-    api.get_place_by_gps()
-    api.get_map()
-    api.location_focus()
-
-if __name__ == "__main__":
-    main()
         
