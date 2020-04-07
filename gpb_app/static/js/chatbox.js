@@ -1,49 +1,38 @@
+// Listen to the form and lauch the chat functions
+let form = document.getElementById('form');
+form.addEventListener('submit', getUserInput);
+
 //Get the user input from the form
 function getUserInput(event) {
     event.preventDefault();
     document.getElementById("progress").style.display="block";
     fetch('/chatbox', {method: 'POST', body: new FormData(this)})
     .then(function(response) { return response.json(); })
-    .then(publish)
+    .then(messagesPublishing)
 };
 
-// format JSON received
-function publish(json) {
-    const chatElt = document.getElementById("chatbox");
-    answerElt = document.createElement("div");
-    const loadElt  = document.getElementById('load');
+// receiving json and creating DOM elements to print it
+function messagesPublishing(json) {
+    const chatAreaElement = document.getElementById("chatbox");
+    messagesElement = document.createElement("div");
     const markup = `
-            <p class='question left'>${json.userquestion}</p>
-            <p class='answer right txtright'>${json.address}</p>
-            <p class='answer right txtright'>
+            <p class="user-question">${json.user_question}</p>
+            <p class="adress-answer">${json.address}</p>
+            <p class="map-answer"><img src="${json.map_url}"></p>
+            <p class="wiki-answer">
                 ${json.extract}
-                ${json.url ? `                Mais je fatigue : c'est l'heure de la sieste!
-                Va donc voir <a href='https://fr.wikipedia.org/w/index.php?curid=${json.url}'>sur wikipedia</a>.` :   ''}
-            </p>
-            ${json.map_img_src ? `<p class='answer right txtcenter'><a href="${json.map_link}"><img src="${json.map_img_src}"></a></p>` : ''}
+                Si tu veux te cultiver, on ne sait jamais : 
+                <a href='${json.url}'></a></p>
             `;
-    answerElt.innerHTML = markup;
-    chatElt.appendChild(answerElt);
-    chatElt.innerHTML += '\n                ';
+    messagesElement.innerHTML = markup;
+    chatAreaElement.appendChild(messagesElement);
+    chatAreaElement.innerHTML += '\n                ';
     document.getElementById("progress").style.display="none";
     console.log(document.getElementById("userinput").textContent);
     document.getElementById("userinput").textContent = '';
     window.scrollBy(0, window.innerHeight);
 };
 
-const form = document.getElementById('form');
-form.addEventListener('submit', getUserInput);
-
-// function formatAMPM(date) {
-//     var hours = date.getHours();
-//     var minutes = date.getMinutes();
-//     var ampm = hours >= 12 ? 'PM' : 'AM';
-//     hours = hours % 12;
-//     hours = hours ? hours : 12; // the hour '0' should be '12'
-//     minutes = minutes < 10 ? '0'+minutes : minutes;
-//     var strTime = hours + ':' + minutes + ' ' + ampm;
-//     return strTime;
-// }            
 
 // //-- No use time. It is a javaScript effect.
 // function insertChat(who, text, time){

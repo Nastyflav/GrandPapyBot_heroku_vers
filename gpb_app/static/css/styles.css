@@ -44,26 +44,37 @@ header {
 .frame {                     /*Chatbox background*/
     background:#ebe186;
     height: 250px;
-    overflow:hidden;
+    overflow:auto;
     padding: 0;
     border-radius: 6px;
 }
 
-ul {  /*Chat*/
-    width:100%;
-    list-style-type: none;
-    padding:18px;
-    bottom:47px;
-    display:flex;
-    flex-direction: column;
-    top:0;
-    overflow-y:scroll;
-}
-
-li {    /*Chat messages */
+.user-question {         /*Chat messages */
     box-shadow: 2px 2px 0px 0px rgba(73, 41, 0, 0.3); 
     border-radius: 6px;
     background-color: whitesmoke;
+    margin: 1em;
+    text-align: left;
+    padding-left: 1em;
+}
+
+.adress-answer, .wiki-answer {       /*Chat messages */
+    box-shadow: 2px 2px 0px 0px rgba(73, 41, 0, 0.3); 
+    border-radius: 6px;
+    background-color: whitesmoke;
+    margin: 1em;
+    text-align: right;
+    padding-right: 1em;
+}
+
+.map-answer {       /*Chat messages */
+    box-shadow: 2px 2px 0px 0px rgba(73, 41, 0, 0.3); 
+    border-radius: 6px;
+    background-color: whitesmoke;
+    margin: 1em;
+    text-align: right;
+    padding-right: 1em;
+    height: 400px;
 }
 
 h1, h3, label {     /*Only one font needed*/
@@ -102,30 +113,3 @@ p {     /*As the footer paragraphs*/
     display:flex;
     flex-direction:column;
 }
-
-.text > p:first-of-type{
-    width:100%;
-    margin-top:1em;
-    line-height: 13px;
-    font-size: 15px;
-
-}
-.text > p:last-of-type{         /*Hours*/  
-    width:100%;
-    text-align:right;
-    color:silver;
-}
-
-.text-l{
-    float:left;
-    padding-right:10px;
-}        
-
-.avatar{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:25%;
-    float:left;
-    padding-right:10px;
-}     
