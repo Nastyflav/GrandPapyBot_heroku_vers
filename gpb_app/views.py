@@ -15,7 +15,7 @@ app.config.from_object('config')
 
 def chatbox():
     """Route to connect Python backend and JS frontend"""
-    query = request.form['userinput']
+    query = request.form['input']
 
     if len(query) <= 1:         #if the user doesn't write a single character
         empty_error = cf.EMPTY_QUERY_ANSWER
@@ -63,8 +63,8 @@ def chatbox():
         extract = location_datas.get('extract')       #gets the infos we need
         url = location_datas.get('url')
 
-    return jsonify({'name': name, 'adress': adress, 'map': map_url, 'location': text_location, 'story': text_story,
-                    'extract': extract, 'url': url})
+    return jsonify({'name': name, 'adress': adress, 'map': map_url, 'location': text_location, 
+                    'userquestion': query, 'story': text_story, 'extract': extract, 'url': url})
 
 @app.route('/')
 @app.route('/index/')

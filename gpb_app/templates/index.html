@@ -25,22 +25,20 @@
                 </section>
             </header><br>
         
-            <section class='chat-area'>
-                <div class="row">       
-                    <div class="col-md-12 frame">
-                        <ul></ul>
-                    </div>
-                <form class="message-area">
+            <section class="chat-area">
+                <div id = "chatbox" class="col-md-12 frame">
+                </div>
+                <form id="form" class="message-area">
                     <div class="col-md-12">                        
                         <div class="form-group">
                             <label for="catchline">Posez votre question à GrandPy !</label>
                             <div class="text" style="background:whitesmoke !important">
-                                <input type="input" class="user-input" name="userinput" placeholder="{{ config.TEXT_AREA }}">
+                                <input id="userinput" type="text" name="input" class="user-input" placeholder="{{ config.TEXT_AREA }}" onfocus="this.value='';">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12">
-                    <button type="button" class="btn btn-info">Envoyer à GrandPy</button></div>
+                        <button type="submit" class="btn btn-info">Envoyer à GrandPy</button></div>
                     <progress id="progress" style="display:none;"></progress>                                                     
                 </form>
             </section><br>
@@ -66,8 +64,7 @@
                 </section>
             </footer>
         </div>
-    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chatbox.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }} "></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     </body>
 </html>
