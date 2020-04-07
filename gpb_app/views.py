@@ -42,7 +42,7 @@ def chatbox():
         
         location_geo_datas = place.location_datas()
         name = location_geo_datas.get('name')     #if there's a place, gets its name and adress
-        adress = location_geo_datas('adress')
+        adress = location_geo_datas.get('adress')
 
     map_url = place.get_map()       #get the map url from a method
 

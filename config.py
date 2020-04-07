@@ -19,7 +19,7 @@ ANSWERS_ADRESS_OK = ['Evidemment, je ne suis pas encore gâteux ! Voici l\'adres
                     'Tu ne connais pas ça ? Faut sortir un peu quand même : ']
 ANSWERS_STORY_OK = ['Haha, je me souviens, un bien bel endroit : ',
                     'On y est allé avec ta grand-mère, on a passé du bon temps, héhé... Comment ça tu veux pas savoir ? Bon, voici la version pour les enfants : ',
-                    'Alors, attends, oui, je me rappelle maintenant : '
+                    'Alors, attends, oui, je me rappelle maintenant : ',
                     'Ouvre bien tes esgourdes, je ne le répéterai pas deux fois : ']
 ANSWERS_ADRESS_FAIL = ['Tu as tourné la carte ou quoi ?',
                         'Connais pas. Je bosse pas aux PTT moi !',
