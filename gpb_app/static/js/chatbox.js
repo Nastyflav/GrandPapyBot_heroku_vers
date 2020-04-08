@@ -15,10 +15,9 @@ function getUserInput(event) {
 function messagesPublishing(json) {
     const chatAreaElement = document.getElementById("chatbox");
     messagesElement = document.createElement("div");
-    const loadElt  = document.getElementById('load');
     const markup = `
             <p class="user-question">${json.userquestion}</p>
-            <p class="adress-answer">${json.message_adress} : ${json.name}, ${json.address}</p>
+            <p class="adress-answer">${json.name} ${json.address}</p>
             <p class="map-answer"><img src="${json.map_url}"></p>
             <p class="wiki-answer">${json.message_story} : ${json.extract} <br/>
                 Si tu veux te cultiver, on ne sait jamais : 

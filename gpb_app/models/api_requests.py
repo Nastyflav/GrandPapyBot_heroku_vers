@@ -12,6 +12,7 @@ class APIRequests:
     """Class to load Google Maps datas, a map and Wikipedia datas from a user query"""
     def __init__(self, query):
         self.query = str(query)
+        self.wiki_data = {'status': False}
 
     def location_datas(self):
         """Make a request to the Google Maps API, and sort datas"""
@@ -29,46 +30,55 @@ class APIRequests:
             return {'message_adress': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address}
         
         else:
-            return {'message_adress': choice(cf.ANSWERS_ADRESS_FAIL), 'name': False, 'adress': False}
+            return {'name': choice(cf.ANSWERS_ADRESS_FAIL), 'address': False}
 
     def get_map(self):
         """Get an URL from the API to later display a static map"""
-        self.coordinates = '{},{}'.format(self.latitude, self.longitude)
-        payload = {'key': cf.GOOGLE_KEY, 'center': self.coordinates, \
+        try:
+            self.coordinates = '{},{}'.format(self.latitude, self.longitude)
+            payload = {'key': cf.GOOGLE_KEY, 'center': self.coordinates, \
                     'markers': self.coordinates, 'size': '{}x{}'.format(500, 400)}
-        self.gm_url = ur.urlparse(cf.GOOGLE_MAP_URL)
-        self.query = ur.urlencode(payload)
-        self.parts = (self.gm_url.scheme, self.gm_url.netloc, self.gm_url.path, '', self.query, '')
+            self.gm_url = ur.urlparse(cf.GOOGLE_MAP_URL)
+            self.query = ur.urlencode(payload)
+            self.parts = (self.gm_url.scheme, self.gm_url.netloc, self.gm_url.path, '', self.query, '')
 
-        return {'map_url': ur.urlunparse(self.parts)}
+            return {'map_url': ur.urlunparse(self.parts)}
             
+        except:
+            return {'map_url': choice(cf.ANSWERS_ADRESS_FAIL)}
+
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
-        payload = {'format': 'json', 'action': 'query', 'list': 'geosearch', 'gsradius': 10000, \
+        try:
+            payload = {'format': 'json', 'action': 'query', 'list': 'geosearch', 'gsradius': 10000, \
                     'gscoord': f'{self.latitude}|{self.longitude}'}
-        response = rq.get(url =cf.WIKI_URL, params=payload)
+            response = rq.get(url =cf.WIKI_URL, params=payload)
 
-        if response.status_code == 200:
-            self.geosearch_data = response.json()
-            return self.geosearch_data['query']['geosearch'][0]['pageid']
-        else:
+            if response.status_code == 200:
+                self.geosearch_data = response.json()
+                return self.geosearch_data['query']['geosearch'][0]['pageid']
+            else:
+                return False
+        except:
             return False
 
     def location_focus(self):
         """Make a request to the MediaWiki Extracts API, based on a Wiki page matching with the nearest place from the user query"""
-        self.page_id = self.get_place_by_gps()
-        payload = {'format': 'json', 'action': 'query', 'prop': 'extracts|info', \
+        try:
+            self.page_id = self.get_place_by_gps()
+            payload = {'format': 'json', 'action': 'query', 'prop': 'extracts|info', \
                     'inprop': 'url', 'exchars': 1200, 'explaintext': 1, 'pageids': self.page_id}
 
-        response = rq.get(cf.WIKI_URL, params=payload)
+            response = rq.get(cf.WIKI_URL, params=payload)
         
-        if response.status_code == 200:
-            self.wiki_data = response.json()
-            self.extract = self.wiki_data['query']['pages'][str(self.page_id)]['extract']
-            self.url = self.wiki_data['query']['pages'][str(self.page_id)]['fullurl']
+            if response.status_code == 200:
+                self.wiki_data = response.json()
+                self.wiki_data['status'] = True
+                self.extract = self.wiki_data['query']['pages'][str(self.page_id)]['extract']
+                self.url = self.wiki_data['query']['pages'][str(self.page_id)]['fullurl']
 
-            return {'message_story': choice(cf.ANSWERS_STORY_OK), 'extract': self.extract, 'url': self.url}
-            
-        else:
+                return {'message_story': choice(cf.ANSWERS_STORY_OK), 'extract': self.extract, 'url': self.url}
+            else:
+                return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False, 'url': False}
+        except:
             return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False, 'url': False}
-        

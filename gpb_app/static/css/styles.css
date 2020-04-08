@@ -74,7 +74,6 @@ header {
     margin: 1em;
     text-align: right;
     padding-right: 1em;
-    height: 400px;
 }
 
 h1, h3, label {     /*Only one font needed*/
