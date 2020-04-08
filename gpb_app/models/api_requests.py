@@ -4,6 +4,8 @@
 import requests as rq
 import json
 import urllib.parse as ur
+from random import choice
+import config as cf
 
 
 class APIRequests:
@@ -20,15 +22,15 @@ class APIRequests:
         self.data = response.json()
         
         if self.data.get("status") == "OK":
-            self.latitude = self.data['candidates'][0]["geometry"]["location"]['lat']
-            self.longitude = self.data['candidates'][0]["geometry"]["location"]['lng']
-            self.name = self.data['candidates'][0]["name"]
-            self.address = self.data['candidates'][0]["formatted_address"]
+            self.latitude = self.data['candidates'][0]['geometry']['location']['lat']
+            self.longitude = self.data['candidates'][0]['geometry']['location']['lng']
+            self.name = self.data['candidates'][0]['name']
+            self.address = self.data['candidates'][0]['formatted_address']
 
-            return {"name": self.name, "address": self.address}
+            return {'message_adress': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address}
         
         else:
-            return False
+            return {'message_adress': choice(cf.ANSWERS_ADRESS_FAIL), 'name': False, 'adress': False}
 
     def get_map(self):
         """Get an URL from the API to later display a static map"""
@@ -43,8 +45,8 @@ class APIRequests:
             
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
-        payload = {"format": "json", "action": "query", "list": "geosearch", "gsradius": 10000, \
-                    "gscoord": f"{self.latitude}|{self.longitude}"}
+        payload = {'format': 'json', 'action': 'query', 'list': 'geosearch', 'gsradius': 10000, \
+                    'gscoord': f'{self.latitude}|{self.longitude}'}
         response = rq.get(url ="https://fr.wikipedia.org/w/api.php", params=payload)
 
         if response.status_code == 200:
@@ -56,18 +58,18 @@ class APIRequests:
 
     def location_focus(self):
         """Make a request to the MediaWiki Extracts API, based on a Wiki page matching with the nearest place from the user query"""
-        payload = {"format": "json", "action": "query", "prop": "extracts|info", \
-                    "inprop": "url", "exchars": 1200, "explaintext": 1, "pageids": self.page_id}
+        payload = {'format': 'json', 'action': 'query', 'prop': 'extracts|info', \
+                    'inprop': 'url', 'exchars': 1200, 'explaintext': 1, 'pageids': self.page_id}
 
-        response = rq.get("https://fr.wikipedia.org/w/api.php", params=payload)
+        response = rq.get('https://fr.wikipedia.org/w/api.php', params=payload)
         
         if response.status_code == 200:
             self.wiki_data = response.json()
             self.extract = self.wiki_data['query']['pages'][str(self.page_id)]['extract']
             self.url = self.wiki_data['query']['pages'][str(self.page_id)]['fullurl']
 
-            return {"extract": self.extract, "url": self.url}
+            return {'message_story': choice(cf.ANSWERS_STORY_OK), 'extract': self.extract, 'url': self.url}
             
         else:
-            return False
+            return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False, 'url': False}
         
