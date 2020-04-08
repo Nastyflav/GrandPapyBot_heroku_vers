@@ -18,9 +18,9 @@ function messagesPublishing(json) {
     const loadElt  = document.getElementById('load');
     const markup = `
             <p class="user-question">${json.userquestion}</p>
-            <p class="adress-answer">${json.text_location} : ${json.name}, ${json.address}</p>
+            <p class="adress-answer">${json.message_adress} : ${json.name}, ${json.address}</p>
             <p class="map-answer"><img src="${json.map_url}"></p>
-            <p class="wiki-answer">${json.text_story} : ${json.extract} <br/>
+            <p class="wiki-answer">${json.message_story} : ${json.extract} <br/>
                 Si tu veux te cultiver, on ne sait jamais : 
                 <a href='${json.url}'>en savoir plus</a></p>
             `;
@@ -28,7 +28,6 @@ function messagesPublishing(json) {
     chatAreaElement.appendChild(messagesElement);
     chatAreaElement.innerHTML += '\n                ';
     document.getElementById("progress").style.display="none";
-    console.log(document.getElementById("userinput").textContent);
     document.getElementById("userinput").textContent = '';
     window.scrollBy(0, window.innerHeight);
 };

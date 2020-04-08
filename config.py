@@ -12,7 +12,6 @@ APP_GPL_LINK = 'https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9ral
 
 #Chatbox presets
 TEXT_AREA = 'Coucou GrandPy, tu vas bien ? Dis-moi, tu ne saurais pas où se situe Minneapolis par hasard ?'
-ERROR = 'Ton Internet déraille complètement...'
 ANSWERS_ADRESS_OK = ['Evidemment, je ne suis pas encore gâteux ! Voici l\'adresse', 
                     'Héhé, ça me dit quelque chose',
                     'Attends voir...Tiens, j\'ai trouvé',
@@ -37,16 +36,6 @@ GOOGLE_INPUTTYPE = 'textquery'
 GOOGLE_FIELDS = 'formatted_address,name,geometry'
 GOOGLE_LANGUAGE = 'fr'
 GOOGLE_MAP_URL = 'https://maps.googleapis.com/maps/api/staticmap?'
-GOOGLE_MAP_SIZE = (500, 400)
 
 #Wikipedia Api presets
-WIKI_URL = 'https://en.wikipedia.org/w/api.php'
-WIKI_FORMAT = 'json'
-WIKI_LIST = 'geosearch'
-WIKI_ACTION = 'query'
-WIKI_RADIUS = 10000
-WIKI_PROP = "extracts|info"
-WIKI_INPROP = "url"
-WIKI_EXCHARS = 1000
-WIKI_EXPLAINTEXT = 1
-
+WIKI_URL = 'https://fr.wikipedia.org/w/api.php'

@@ -83,3 +83,4 @@ class TestApiRequests:
             url = ur.urlunparse(parts)
 
         assert url == "https://maps.googleapis.com/maps/api/staticmap?center=47.218371%2C-1.553621&markers=47.218371%2C-1.553621&size=500x400"
+        
