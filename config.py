@@ -12,15 +12,15 @@ APP_GPL_LINK = 'https://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9ral
 
 #Chatbox presets
 TEXT_AREA = 'Coucou GrandPy, tu vas bien ? Dis-moi, tu ne saurais pas où se situe Minneapolis par hasard ?'
-EMPTY_QUERY_ANSWER = 'Tu vois le truc devant toi, avec les touches ? Il faut l\'utiliser pour discuter...'
-ANSWERS_ADRESS_OK = ['Evidemment, je ne suis pas encore gâteux ! Voici l\'adresse : ', 
-                    'Héhé, ça me dit quelque chose : ',
-                    'Attends voir...Tiens, j\'ai trouvé : ',
-                    'Tu ne connais pas ça ? Faut sortir un peu quand même : ']
-ANSWERS_STORY_OK = ['Haha, je me souviens, un bien bel endroit : ',
-                    'On y est allé avec ta grand-mère, on a passé du bon temps, héhé... Comment ça tu veux pas savoir ? Bon, voici la version pour les enfants : ',
-                    'Alors, attends, oui, je me rappelle maintenant : ',
-                    'Ouvre bien tes esgourdes, je ne le répéterai pas deux fois : ']
+ERROR = 'Ton Internet déraille complètement...'
+ANSWERS_ADRESS_OK = ['Evidemment, je ne suis pas encore gâteux ! Voici l\'adresse', 
+                    'Héhé, ça me dit quelque chose',
+                    'Attends voir...Tiens, j\'ai trouvé',
+                    'Tu ne connais pas ça ? Faut sortir un peu quand même']
+ANSWERS_STORY_OK = ['Haha, je me souviens, un bien bel endroit',
+                    'On y est allé avec ta grand-mère, on a passé du bon temps, héhé... Comment ça tu veux pas savoir ? Bon, voici la version pour les enfants',
+                    'Alors, attends, oui, je me rappelle maintenant',
+                    'Ouvre bien tes esgourdes, je ne le répéterai pas deux fois']
 ANSWERS_ADRESS_FAIL = ['Tu as tourné la carte ou quoi ?',
                         'Connais pas. Je bosse pas aux PTT moi !',
                         'Sois plus précis s\'il te plait, GrandPy est fatigué...',

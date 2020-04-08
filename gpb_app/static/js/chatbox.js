@@ -15,14 +15,14 @@ function getUserInput(event) {
 function messagesPublishing(json) {
     const chatAreaElement = document.getElementById("chatbox");
     messagesElement = document.createElement("div");
+    const loadElt  = document.getElementById('load');
     const markup = `
-            <p class="user-question">${json.user_question}</p>
-            <p class="adress-answer">${json.address}</p>
+            <p class="user-question">${json.userquestion}</p>
+            <p class="adress-answer">${json.text_location} : ${json.name}, ${json.address}</p>
             <p class="map-answer"><img src="${json.map_url}"></p>
-            <p class="wiki-answer">
-                ${json.extract}
+            <p class="wiki-answer">${json.text_story} : ${json.extract} <br/>
                 Si tu veux te cultiver, on ne sait jamais : 
-                <a href='${json.url}'></a></p>
+                <a href='${json.url}'>en savoir plus</a></p>
             `;
     messagesElement.innerHTML = markup;
     chatAreaElement.appendChild(messagesElement);
@@ -32,60 +32,3 @@ function messagesPublishing(json) {
     document.getElementById("userinput").textContent = '';
     window.scrollBy(0, window.innerHeight);
 };
-
-
-// //-- No use time. It is a javaScript effect.
-// function insertChat(who, text, time){
-//     if (time === undefined){
-//         time = 0;
-//     }
-//     var control = "";
-//     var date = formatAMPM(new Date());
-    
-//     if (who == "me"){
-//         control = '<li style="width:100%">' +
-//                         '<div class="message-area">' +
-//                             '<div class="text text-l">' +
-//                                 '<p>'+ text +'</p>' +
-//                                 '<p><small>'+date+'</small></p>' +
-//                             '</div>' +
-//                         '</div>' +
-//                     '</li>';                    
-//     }else{
-//         control = '<li style="width:100%;">' +
-//                         '<div class="message-area">' +
-//                             '<div class="text">' +
-//                                 '<p>'+text+'</p>' +
-//                                 '<p><small>'+date+'</small></p>'                                
-//                   '</li>';
-//     }
-//     setTimeout(
-//         function(){                        
-//             $("ul").append(control).scrollTop($("ul").prop('scrollHeight'));
-//         }, time);
-    
-// }
-
-// function resetChat(){
-//     $("ul").empty();
-// }
-
-// $(".user-input").on("keydown", function(e){
-//     if (e.which == 13){
-//         var text = $(this).val();
-//         if (text !== ""){
-//             insertChat("me", text);              
-//             $(this).val('');
-//         }
-//     }
-// });
-
-// $('body > div > div > div:nth-child(2) > span').click(function(){
-//     $(".user-input").trigger({type: 'keydown', which: 13, keyCode: 13});
-// })
-
-// //-- Clear Chat
-// resetChat();
-
-// //-- Print Messages
-// insertChat("me", "Bon, j'ai pas que ça à faire, je t'écoute...", 0);
