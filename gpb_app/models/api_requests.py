@@ -12,7 +12,6 @@ class APIRequests:
     """Class to load Google Maps datas, a map and Wikipedia datas from a user query"""
     def __init__(self, query):
         self.query = str(query)
-        self.page_id = self.geosearch_data['query']['geosearch'][0]['pageid']
 
     def location_datas(self):
         """Make a request to the Google Maps API, and sort datas"""
@@ -51,13 +50,13 @@ class APIRequests:
 
         if response.status_code == 200:
             self.geosearch_data = response.json()
-            return self.geosearch_data
         
         else:
             return False
 
     def location_focus(self):
         """Make a request to the MediaWiki Extracts API, based on a Wiki page matching with the nearest place from the user query"""
+        self.page_id = self.geosearch_data['query']['geosearch'][0]['pageid']
         payload = {'format': 'json', 'action': 'query', 'prop': 'extracts|info', \
                     'inprop': 'url', 'exchars': 1200, 'explaintext': 1, 'pageids': self.page_id}
 
