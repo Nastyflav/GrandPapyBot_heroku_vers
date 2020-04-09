@@ -26,7 +26,8 @@ class APIRequests:
             self.name = self.data['candidates'][0]['name']
             self.address = self.data['candidates'][0]['formatted_address']
 
-            return {'message_address': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address}
+            return {'message_address': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address,
+                    'latitude': self.latitude, 'longitude': self.longitude}
         
         else:
             return {'message_address': choice(cf.ANSWERS_ADRESS_FAIL), 'name': False}
