@@ -12,7 +12,6 @@ class APIRequests:
     """Class to load Google Maps datas, a map and Wikipedia datas from a user query"""
     def __init__(self, query):
         self.query = str(query)
-        self.wiki_data = {'status': False}
 
     def location_datas(self):
         """Make a request to the Google Maps API, and sort datas"""
@@ -27,7 +26,7 @@ class APIRequests:
             self.name = self.data['candidates'][0]['name']
             self.address = self.data['candidates'][0]['formatted_address']
 
-            return {'message_adress': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address}
+            return {'message_address': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address}
         
         else:
             return {'name': choice(cf.ANSWERS_ADRESS_FAIL), 'address': False}
@@ -67,7 +66,7 @@ class APIRequests:
         try:
             self.page_id = self.get_place_by_gps()
             payload = {'format': 'json', 'action': 'query', 'prop': 'extracts|info', \
-                    'inprop': 'url', 'exchars': 1200, 'explaintext': 1, 'pageids': self.page_id}
+                    'inprop': 'url', 'exsentences': 5, 'explaintext': 1, 'pageids': self.page_id}
 
             response = rq.get(cf.WIKI_URL, params=payload)
         
