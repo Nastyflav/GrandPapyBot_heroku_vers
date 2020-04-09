@@ -29,7 +29,7 @@ class APIRequests:
             return {'message_address': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address}
         
         else:
-            return {'name': choice(cf.ANSWERS_ADRESS_FAIL), 'address': False}
+            return {'message_address': choice(cf.ANSWERS_ADRESS_FAIL), 'name': False}
 
     def get_map(self):
         """Get an URL from the API to later display a static map"""
@@ -44,7 +44,7 @@ class APIRequests:
             return {'map_url': ur.urlunparse(self.parts)}
             
         except:
-            return {'map_url': choice(cf.ANSWERS_ADRESS_FAIL)}
+            return {'map_url': False}
 
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
@@ -66,7 +66,7 @@ class APIRequests:
         try:
             self.page_id = self.get_place_by_gps()
             payload = {'format': 'json', 'action': 'query', 'prop': 'extracts|info', \
-                    'inprop': 'url', 'exsentences': 5, 'explaintext': 1, 'pageids': self.page_id}
+                    'inprop': 'url', 'exsentences': 3, 'explaintext': 1, 'pageids': self.page_id}
 
             response = rq.get(cf.WIKI_URL, params=payload)
         

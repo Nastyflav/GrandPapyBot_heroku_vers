@@ -17,11 +17,12 @@ function messagesPublishing(json) {
     messagesElement = document.createElement("div");
     const markup = `
             <p class="user-question">${json.userquestion}</p>
-            <p class="adress-answer">${json.message_address} : ${json.name} ${json.address}</p>
-            <p class="map-answer"><img src="${json.map_url}"></p>
-            <p class="wiki-answer">${json.message_story} : ${json.extract} <br/>
+            <p class="adress-answer">${json.message_address}</p>
+            ${json.name ? `<p class="adress-answer">${json.name} ${json.address}</p>`:""}
+            ${json.map_url ? `<p class="map-answer"><img src="${json.map_url}"></p>`:""}
+            ${json.extract ? `<p class="wiki-answer">${json.message_story} : ${json.extract} <br/>
                 Si tu veux te cultiver, on ne sait jamais : 
-                <a href='${json.url}'>en savoir plus</a></p>
+                <a href='${json.url}'>en savoir plus</a></p></p>`:""}
             `;
     messagesElement.innerHTML = markup;
     chatAreaElement.appendChild(messagesElement);
