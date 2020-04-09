@@ -35,7 +35,7 @@ class TestApiRequests:
         self.wiki_longitude = -1.5533048
 
         def mock_place_coord(requests):
-            return self.wiki_coord
+            return self.wiki_latitude, self.wiki_longitude
 
         self.place.query = self.user_input
         monkeypatch.setattr(urllib.request, 'urlopen', mock_place_coord)
@@ -57,7 +57,7 @@ class TestApiRequests:
 
     def test_get_place_extract(self, monkeypatch):
         """Check if twe can get the extract for the Wiki page"""
-        self.wiki_extract = "La rue de la Commune est une voie située dans le centre-ville de Nantes, en France.\n\n\n== Description ==\nLa rue de la Commune est une voie bitumée et ouverte à la circulation automobile. Elle va de la place Saint-Jean à la place de l'Hôtel-de-Ville.\n\n\n== Dénomination ==\nCe nom lui a été attribué en 1793, la rue s'appelait auparavant « rue de Verdun ».\n\n\n== Historique ==\nLa rue était naguère plus longue qu'elle ne l'est aujourd'hui. En effet, avant l'aménagement de la place de l'Hôtel-de-ville, elle englobait également la partie septentrionale de la rue du Moulin, jusqu'au niveau de la rue Fénelon (voire jusqu'à l'actuelle rue de la Marne selon Ange Guépin).\n\n\n== Références ==\n\n\n== Voir aussi ==\n\n\n=== Bibliographie ===\nÉdouard Pied, Notices sur les rues de Nantes, A. Dugas, 1906, 331 p., p. 75.\n\n\n=== Articles connexes ===\nListe des voies de Nantes Portail de l’architecture et de l’urbanisme   Portail de Nantes…"
+        self.wiki_extract = "La rue de la Commune est une voie située dans le centre-ville de Nantes, en France.\n\n\n== Description ==\nLa rue de la Commune est une voie bitumée et ouverte à la circulation automobile. Elle va de la place Saint-Jean à la place de l'Hôtel-de-Ville."
 
         def mock_place_extract(requests):
             return self.wiki_extract
@@ -73,14 +73,5 @@ class TestApiRequests:
 
         # Testing response URL without API key
         url = self.place.get_map()
-
-        if 'key=' in url:
-            old_parts = ur.urlparse(url)
-            padic = ur.parse_qs(old_parts.query)
-            del(padic['key'])
-            query = ur.urlencode(padic, doseq=True)
-            parts = (old_parts.scheme, old_parts.netloc, old_parts.path, '', query, '')
-            url = ur.urlunparse(parts)
-
-        assert url == "https://maps.googleapis.com/maps/api/staticmap?center=47.218371%2C-1.553621&markers=47.218371%2C-1.553621&size=500x400"
+        assert url['map_url'] == 'https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204&center=47.218371%2C-1.553621&markers=47.218371%2C-1.553621&size=500x400'
         
