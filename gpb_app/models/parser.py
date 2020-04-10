@@ -11,7 +11,7 @@ class Parser:
         self.final_query_in_string = str()
 
     def clean_input_of_symbols(self):
-        """Compare the user input with the stop words list to get only the key words for research"""
+        """Clean the query from all the alphanum symbols"""
         with open("gpb_app/models/symbols.txt", "r", encoding="cp1252") as file:
             file = file.readlines()
             for symbol in file:
@@ -19,6 +19,7 @@ class Parser:
                 self.textinput = self.textinput.replace(symbol, " ")
 
     def clean_input_of_stopwords(self):
+        """Compare the user input with the stop words list to get only the key words for research"""
         self.final_query = []
 
         for word in self.textinput.split():

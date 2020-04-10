@@ -24,12 +24,10 @@ def chatbox():
         parser.clean_input_of_stopwords()
 
         place = APIRequests(parser.final_query_in_string)     #call the API to search the place contained in the user query
-
         response.update(place.location_datas())
         response.update(place.location_focus())
 
-
-    return jsonify(response)
+    return jsonify(response)            #returns all the dicts we need for publishing in the frontpage
 
 @app.route('/')
 @app.route('/index/')

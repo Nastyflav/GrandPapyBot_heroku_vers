@@ -76,7 +76,7 @@ header {
     padding-right: 1em;
 }
 
-#map
+#map        /*The map below the chatbox*/
 {
     height: 140px;
     max-width: 100%;
