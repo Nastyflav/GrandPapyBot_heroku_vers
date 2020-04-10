@@ -76,6 +76,17 @@ header {
     padding-right: 1em;
 }
 
+#map
+{
+    height: 140px;
+    max-width: 100%;
+    margin: 10px;
+    border-left: 5px silver inset;
+    border-right: 5px silver inset;
+    border-top: 5px silver inset;
+    border-bottom: 5px silver inset;
+}
+
 h1, h3, label {     /*Only one font needed*/
     font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
 }
@@ -111,15 +122,4 @@ p {     /*As the footer paragraphs*/
     width:100%;
     display:flex;
     flex-direction:column;
-}
-
-#map
-{
-    height: 140px;
-    max-width: 100%;
-    margin: 10px;
-    border-left: 5px silver inset;
-    border-right: 5px silver inset;
-    border-top: 5px silver inset;
-    border-bottom: 5px silver inset;
 }
