@@ -2,6 +2,7 @@
 let form = document.getElementById('form');
 form.addEventListener('submit', getUserInput);
 
+// Initializes the map, based on the GPS coordinates given by the server
 function mapInit(json) {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: json.latitude, lng: json.longitude},
@@ -13,7 +14,7 @@ function mapInit(json) {
         });
 };
  
-//Get the user input from the form
+//Gets the user input from the form and lauches the publishing function as a JS promise
 function getUserInput(event) {
     event.preventDefault();
     document.getElementById("progress").style.display="block";
