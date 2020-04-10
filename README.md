@@ -12,7 +12,7 @@ Once you arrive on the [GrandPy Bot web page](https://world.openfoodfacts.org/) 
 	- you can ask him to find a location and its historical background \
 	- a map will be displayed each time you request a location
 
-GrandPy Bot is hosted by [Heroku](https://www.heroku.com/)  for now only available in french language.	
+GrandPy Bot is hosted by [Heroku](https://www.heroku.com/), and for now is only available in french language.	
 
 # How to install and launch :
 --------------
