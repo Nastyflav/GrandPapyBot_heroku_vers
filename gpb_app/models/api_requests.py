@@ -32,21 +32,6 @@ class APIRequests:
         else:
             return {'message_address': choice(cf.ANSWERS_ADRESS_FAIL), 'name': False}
 
-    def get_map(self):
-        """Get an URL from the API to later display a static map"""
-        try:
-            self.coordinates = '{},{}'.format(self.latitude, self.longitude)
-            payload = {'key': cf.GOOGLE_KEY, 'center': self.coordinates, \
-                    'markers': self.coordinates, 'size': '{}x{}'.format(500, 400)}
-            self.gm_url = ur.urlparse(cf.GOOGLE_MAP_URL)
-            self.query = ur.urlencode(payload)
-            self.parts = (self.gm_url.scheme, self.gm_url.netloc, self.gm_url.path, '', self.query, '')
-
-            return {'map_url': ur.urlunparse(self.parts)}
-            
-        except:
-            return {'map_url': False}
-
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
         try:

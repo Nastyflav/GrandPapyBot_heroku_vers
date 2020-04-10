@@ -26,7 +26,6 @@ def chatbox():
         place = APIRequests(parser.final_query_in_string)     #call the API to search the place contained in the user query
 
         response.update(place.location_datas())
-        response.update(place.get_map())
         response.update(place.location_focus())
 
 
