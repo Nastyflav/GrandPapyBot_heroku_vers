@@ -7,14 +7,14 @@ Ask him politely and GrandPy Bot will find you locations and all the stories abo
 
 # What does GrandPy Bot really do ?
 ----------------
-Once you arrive on the [GrandPy Bot web page](https://world.openfoodfacts.org/) :\
+Once you arrive on the [GrandPy Bot web page](https://gp-bot-app.herokuapp.com/ :\
 	- you can chat with GrandPy Bot (careful, he has bad temper) \
 	- you can ask him to find a location and its historical background \
 	- a map will be displayed each time you request a location
 
 GrandPy Bot is hosted by [Heroku](https://www.heroku.com/), and for now is only available in french language.	
 
-# How to install and launch :
+# For developpers, how to install and work on the app :
 --------------
 Clone with https : https://github.com/Nastyflav/GrandPapyBot_OC.git \
 or clone with SSH : git@github.com:Nastyflav/GrandPapyBot_OC.git \
@@ -43,7 +43,7 @@ run_program.py\
 config.py\
 gpb_app/models/ contains all the different classes and the app functions\
 gpb_app/templates/ manages the frontend structure with an html file \
-gpb_app/static/ contains the images, fonts, jquery scripts and css files\
+gpb_app/static/ contains the images, fonts, js script and css files\
 gpb_app/views.py manages the Flask module\
 gpb_app/tests/ all the test files, with mocks\
 
