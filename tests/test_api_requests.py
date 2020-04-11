@@ -16,10 +16,16 @@ class TestApiRequests:
             
     def test_location_datas(self, monkeypatch):
         """Test if the Google API returns us the right informations"""
-        self.results = {'candidates': [{'formatted_address': 'Nantes, France', \
-                            'geometry': {'location': {'lat': 47.218371, 'lng': -1.553621}, \
-                            'viewport': {'northeast': {'lat': 47.29582689999999, 'lng': -1.4783261}, 'southwest': {'lat': 47.1806171, 'lng': -1.6417861}}}, \
-                            'name': 'Nantes'}], 'status': 'OK'}
+        self.results = {'results': [{'address_components': [{'long_name': 'Nantes', 'short_name': 'Nantes', 
+                        'types': ['locality', 'political']}, {'long_name': 'Loire-Atlantique', 'short_name': 'Loire-Atlantique', 
+                        'types': ['administrative_area_level_2', 'political']}, {'long_name': 'Pays de la Loire', 'short_name': 'Pays de la Loire',
+                        'types': ['administrative_area_level_1', 'political']}, {'long_name': 'France', 'short_name': 'FR', 
+                        'types': ['country', 'political']}], 'formatted_address': 'Nantes, France', 
+                        'geometry': {'bounds': {'northeast': {'lat': 47.29582689999999, 'lng': -1.4783261}, 
+                        'southwest': {'lat': 47.1806171, 'lng': -1.6417861}}, 'location': {'lat': 47.218371, 'lng': -1.553621}, 
+                        'location_type': 'APPROXIMATE', 'viewport': {'northeast': {'lat': 47.29582689999999, 'lng': -1.4783261}, 
+                        'southwest': {'lat': 47.1806171, 'lng': -1.6417861}}}, 'place_id': 'ChIJra6o8IHuBUgRMO0NHlI3DQQ', 
+                        'types': ['locality', 'political']}], 'status': 'OK'}
 
         def mock_json_location(requests):
             return self.results

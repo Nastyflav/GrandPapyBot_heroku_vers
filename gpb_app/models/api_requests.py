@@ -15,22 +15,22 @@ class APIRequests:
 
     def location_datas(self):
         """Make a request to the Google Maps API, and sort datas"""
-        payload = {'input': self.query, 'inputtype': cf.GOOGLE_INPUTTYPE,'fields': cf.GOOGLE_FIELDS,\
-                        'key': cf.GOOGLE_KEY, 'language': cf.GOOGLE_LANGUAGE}
+        payload = {'address': self.query, 'key': cf.GOOGLE_KEY, 'language': cf.GOOGLE_LANGUAGE}
         response = rq.get(url=cf.GOOGLE_URL, params=payload)
         self.data = response.json()
+        print(self.data)
         
         if self.data.get("status") == "OK":
-            self.latitude = self.data['candidates'][0]['geometry']['location']['lat']
-            self.longitude = self.data['candidates'][0]['geometry']['location']['lng']
-            self.name = self.data['candidates'][0]['name']
-            self.address = self.data['candidates'][0]['formatted_address']
+            for data in self.data['results'][0]['address_components']:
+                self.latitude = self.data['results'][0]['geometry']['location']['lat']
+                self.longitude = self.data['results'][0]['geometry']['location']['lng']
+                self.address = self.data['results'][0]['formatted_address']
 
-            return {'message_address': choice(cf.ANSWERS_ADRESS_OK), 'name': self.name, 'address': self.address,
+            return {'message_address': choice(cf.ANSWERS_ADRESS_OK), 'address': self.address,
                     'latitude': self.latitude, 'longitude': self.longitude}
         
         else:
-            return {'message_address': choice(cf.ANSWERS_ADRESS_FAIL), 'name': False}
+            return {'message_address': choice(cf.ANSWERS_ADRESS_FAIL), 'address': False}
 
     def get_place_by_gps(self):
         """Make a request to MediaWiki Geosearch API, to get an amount of places around the GPS coordonnates"""
@@ -64,6 +64,6 @@ class APIRequests:
 
                 return {'message_story': choice(cf.ANSWERS_STORY_OK), 'extract': self.extract, 'url': self.url}
             else:
-                return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False, 'url': False}
+                return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False}
         except:
-            return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False, 'url': False}
+            return {'message_story': choice(cf.ANSWERS_STORY_FAIL), 'extract': False}

@@ -31,9 +31,7 @@ ANSWERS_STORY_FAIL = ['Il ne se passe jamais rien là-bas, faut t\'y faire.',
 
 #Google Maps Api presets
 GOOGLE_KEY = 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204'
-GOOGLE_URL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?'
-GOOGLE_INPUTTYPE = 'textquery'
-GOOGLE_FIELDS = 'formatted_address,name,geometry'
+GOOGLE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?'
 GOOGLE_LANGUAGE = 'fr'
 GOOGLE_MAP_URL = 'https://maps.googleapis.com/maps/api/staticmap?'
 
