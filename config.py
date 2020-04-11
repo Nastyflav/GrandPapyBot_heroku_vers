@@ -33,7 +33,6 @@ ANSWERS_STORY_FAIL = ['Il ne se passe jamais rien là-bas, faut t\'y faire.',
 GOOGLE_KEY = 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204'
 GOOGLE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?'
 GOOGLE_LANGUAGE = 'fr'
-GOOGLE_MAP_URL = 'https://maps.googleapis.com/maps/api/staticmap?'
 
 #Wikipedia Api presets
 WIKI_URL = 'https://fr.wikipedia.org/w/api.php'

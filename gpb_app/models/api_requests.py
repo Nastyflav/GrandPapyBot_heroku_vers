@@ -18,7 +18,6 @@ class APIRequests:
         payload = {'address': self.query, 'key': cf.GOOGLE_KEY, 'language': cf.GOOGLE_LANGUAGE}
         response = rq.get(url=cf.GOOGLE_URL, params=payload)
         self.data = response.json()
-        print(self.data)
         
         if self.data.get("status") == "OK":
             for data in self.data['results'][0]['address_components']:
