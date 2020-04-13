@@ -5,7 +5,7 @@ import gpb_app.models.parser as script
 import pytest
 
 
-class TestUserQuery:
+class TestParser:
 
     USER_QUERY = script.Parser('Bonjour GrandPy ! Tu peux me donner l\'adresse du Louvre s\'il te plait ?')
 
