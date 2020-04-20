@@ -1,6 +1,15 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+"""
+Author: [Nastyflav](https://github.com/Nastyflav) 2020-04-20
+Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
+
+"""
+
+from os import environ
+
+
 #Application informations
 APP_NAME = 'GrandPy Bot'
 APP_CATCHLINE = 'On lui a installé l\'ADSL, profitez-en ! Trouvez des lieux et leur histoire !'
@@ -30,7 +39,7 @@ ANSWERS_STORY_FAIL = ['Il ne se passe jamais rien là-bas, faut t\'y faire.',
                         'J\'ai pas la science infuse moi ! Regarde dans un livre !']
 
 #Google Maps Api presets
-GOOGLE_KEY = 'Insert your API Key here'
+GOOGLE_KEY = environ['API_KEY'],
 GOOGLE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?'
 GOOGLE_LANGUAGE = 'fr'
 
