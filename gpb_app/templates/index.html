@@ -14,15 +14,13 @@
     <body>
         <div class="container">
             <header>
-                <section class="row">
-                    <aside class="col-md-2">
-                        <img id='logoGrandPy' src="{{ url_for('static', filename='images/grandpy_logo.png') }}" alt="Logo de GrandPy" />
-                    </aside>
-                    <div class="col-md-10">
-                        <h1 class="col-md-5">{{ config.APP_NAME }}</h1>
-                        <h3 class="col-md-12">{{ config.APP_CATCHLINE }}</h3>
-                    </div>
-                </section>
+                <aside class="col-md-2">
+                    <img id='logoGrandPy' src="{{ url_for('static', filename='images/grandpy_logo.png') }}" alt="Logo de GrandPy" />
+                </aside>
+                <div class="col-md-10">
+                    <h1 class="col-md-5">{{ config.APP_NAME }}</h1>
+                    <h3 class="col-md-12">{{ config.APP_CATCHLINE }}</h3>
+                </div>
             </header><br>
         
             <section class="chat-area">
@@ -49,24 +47,21 @@
             </section><br>
 
             <footer>
-                <section class="=row">
-                    <div class="col-md-4">
-                        <p><strong>Auteur</strong> : {{ config.APP_AUTHOR }}
-                        <a href="{{ config.APP_LINKEDIN_LINK }}"><img id ='logolinkedin' src="{{ url_for('static', filename='images/linkedin_logo.png') }}" alt="linkedin"/></a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Le code cette application est disponible sur
-                        <a href="{{ config.APP_REPO_LINK }}"><img id ='logogithub' src="{{ url_for('static', filename='images/github_logo.png') }}" alt="github"/></a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Application développée dans le cadre d'un projet d'étude OpenClassrooms
-                        <a href="{{ config.APP_PARTNER_LINK }}"><img id='logo-oc' src="{{ url_for('static', filename='images/oc_logo.jpg') }}" alt="oc"/></a></p>
-                    </div>
-                </section>
-                <section class="=row">
-                    <div class="col-md-12">
-                        <p>2020 copyright <a href="{{ config.APP_GPL_LINK }}">license GPL</a> </p></div>
-                </section>
+                <div class="col-md-4">
+                    <p><strong>Auteur</strong> : {{ config.APP_AUTHOR }}
+                    <a href="{{ config.APP_LINKEDIN_LINK }}"><img id ='logolinkedin' src="{{ url_for('static', filename='images/linkedin_logo.png') }}" alt="linkedin"/></a></p>
+                </div>
+                <div class="col-md-4">
+                    <p>Le code cette application est disponible sur
+                    <a href="{{ config.APP_REPO_LINK }}"><img id ='logogithub' src="{{ url_for('static', filename='images/github_logo.png') }}" alt="github"/></a></p>
+                </div>
+                <div class="col-md-4">
+                    <p>Application développée dans le cadre d'un projet d'étude OpenClassrooms
+                    <a href="{{ config.APP_PARTNER_LINK }}"><img id='logo-oc' src="{{ url_for('static', filename='images/oc_logo.jpg') }}" alt="oc"/></a></p>
+                </div>       
+                <div class="col-md-12">
+                    <p>2020 copyright <a href="{{ config.APP_GPL_LINK }}">license GPL</a></p>
+                </div>
             </footer>
         </div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204&callback=initMap"></script>
