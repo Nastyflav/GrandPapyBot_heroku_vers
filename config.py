@@ -30,7 +30,7 @@ ANSWERS_STORY_FAIL = ['Il ne se passe jamais rien là-bas, faut t\'y faire.',
                         'J\'ai pas la science infuse moi ! Regarde dans un livre !']
 
 #Google Maps Api presets
-GOOGLE_KEY = 'AIzaSyCH_uGge9XRsTK22BY6zDrR2OgpqOZK204'
+GOOGLE_KEY = 'Insert your API Key here'
 GOOGLE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?'
 GOOGLE_LANGUAGE = 'fr'
 
