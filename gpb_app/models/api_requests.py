@@ -64,6 +64,8 @@ class APIRequests:
                 return self.geosearch_data['query']['geosearch'][0]['pageid']
             else:
                 return False
+        except AttributeError:
+            return False
         except KeyError:
             return False
 
@@ -96,6 +98,9 @@ class APIRequests:
             else:
                 return {'message_story': choice(cf.ANSWERS_STORY_FAIL),
                         'extract': False}
+        except AttributeError:
+            return {'message_story': choice(cf.ANSWERS_STORY_FAIL),
+                    'extract': False}
         except KeyError:
             return {'message_story': choice(cf.ANSWERS_STORY_FAIL),
                     'extract': False}
