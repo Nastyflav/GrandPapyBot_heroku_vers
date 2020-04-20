@@ -34,7 +34,7 @@
                 <form id="form" class="message-area">
                     <div class="col-md-12">                        
                         <div class="form-group">
-                            <label for="catchline">Posez votre question à GrandPy !</label>
+                            <label>Posez votre question à GrandPy !</label>
                             <div class="text" style="background:whitesmoke !important">
                                 <input id="userinput" type="text" name="input" class="user-input" placeholder="{{ config.TEXT_AREA }}" onfocus="this.value='';">
                             </div>
@@ -52,15 +52,15 @@
                 <section class="=row">
                     <div class="col-md-4">
                         <p><strong>Auteur</strong> : {{ config.APP_AUTHOR }}
-                        <a href="{{ config.APP_LINKEDIN_LINK }}"><img id ='logolinkedin' src="{{ url_for('static', filename='images/linkedin_logo.png') }}" /></a></p>
+                        <a href="{{ config.APP_LINKEDIN_LINK }}"><img id ='logolinkedin' src="{{ url_for('static', filename='images/linkedin_logo.png') }}" alt="linkedin"/></a></p>
                     </div>
                     <div class="col-md-4">
                         <p>Le code cette application est disponible sur
-                        <a href="{{ config.APP_REPO_LINK }}"><img id ='logogithub' src="{{ url_for('static', filename='images/github_logo.png') }}" /></a></p>
+                        <a href="{{ config.APP_REPO_LINK }}"><img id ='logogithub' src="{{ url_for('static', filename='images/github_logo.png') }}" alt="github"/></a></p>
                     </div>
                     <div class="col-md-4">
                         <p>Application développée dans le cadre d'un projet d'étude OpenClassrooms
-                        <a href="{{ config.APP_PARTNER_LINK }}"><img id='logo-oc' src="{{ url_for('static', filename='images/oc_logo.jpg') }}" /></a></p>
+                        <a href="{{ config.APP_PARTNER_LINK }}"><img id='logo-oc' src="{{ url_for('static', filename='images/oc_logo.jpg') }}" alt="oc"/></a></p>
                     </div>
                 </section>
                 <section class="=row">
