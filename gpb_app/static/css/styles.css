@@ -98,7 +98,7 @@ footer{     /*Footer presets*/
     line-height: 40px; 
 }
 
-p {     /*As the footer paragraphs*/
+h4, p {     /*As the footer paragraphs*/
     font-family: 'MyFont', 'Arial', 'Verdana', 'sans-serif';
     text-align: center;
 }
